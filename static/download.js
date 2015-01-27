@@ -1,4 +1,4 @@
-var path = 'affy100k';
+var path = 'prueba';
 
 $(function () {
     $('#download_form').w2form({ 

@@ -10,8 +10,8 @@ import re
 app = Flask("download")
 mongo = PyMongo(app)
 
-local_repo = '/opendata'
-server_repo = '/var/www/links'
+local_repo  = '/home/rgarcia/opendata'
+server_repo = '/home/rgarcia/public_html'
 
 ############
 # anuncios #
@@ -26,14 +26,20 @@ def anuncio_save():
         oid = mongo.db.downloaders.save(downloader)
 
         local_path = os.path.join( local_repo, path )
-        server_path = os.path.join( server_repo, oid )
+        server_path = os.path.join( server_repo, str(oid) )
+
+
+        app.logger.debug(local_path)
+        app.logger.debug(server_path)
+
 
         os.symlink(local_path, server_path)
 
-        return jsonify({ "status": "success"} )
+        return jsonify({ "oid": str(oid)} )
     except:
-        return jsonify({ "status": "error",
-                         "message": pformat(sys.exc_info()[0]) })
+        raise
+        # return jsonify({ "status": "error",
+        #                  "message": pformat(sys.exc_info()[0]) })
  
 
 
