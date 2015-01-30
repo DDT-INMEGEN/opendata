@@ -1,0 +1,15 @@
+# Site settings
+title: Datos Públicos
+email: rgarcia@inmegen.gob.mx
+description: > # this means to ignore newlines until "baseurl:"
+  Como parte de la iniciativa por el acceso público a datos,
+  y para mejor reproducibilidad de resultados, el Instituto
+  Nacional de Medicina Genómica brinda acceso a esta colección
+  de datos.
+baseurl: "" # the subpath of your site, e.g. /blog/
+# url: "http://yourdomain.com" # the base hostname & protocol for your site
+# twitter_username: jekyllrb
+github_username: DDT-INMEGEN
+
+# Build settings
+markdown: kramdown
