@@ -1,0 +1,25 @@
+[
+    {
+        "identifier": "pdgm_fase_I",
+        "title": "Proyecto de Diversidad Genómica de Mexicanos",
+        "description": "Datos de genotipos de poblaciones mestizas y una nativa extraidos con la plataforma Affymetrix 100k. doi: 10.1073/pnas.0903045106",
+        "keyword": [
+            "genotipos",
+            "mestizos",
+            "diversidad",
+            "genómica humana",
+        ],
+        "modified": "20130304T12:00:00Z",
+        "publisher": "INMEGEN",
+        "contactPoint": "Mtro. Juan Carlos Fernández López",
+        "mbox": "jfernandez@inmegen.gob.mx",
+        "accessLevel": "público",
+        "dataDictionary": "https://www.broadinstitute.org/science/programs/medical-and-population-genetics/haploview/input-file-formats-0",
+        "accessURL": "ftp://ftp.inmegen.gob.mx/affy100k/",
+        "format": "zip",
+        "byteSize": "29176230",
+        "license": "http://creativecommons.org/licenses/by/2.5/mx/deed.es",
+        "theme": "genomics",
+        
+    },
+]
