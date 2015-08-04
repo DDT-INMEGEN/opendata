@@ -111,13 +111,17 @@ respaldos, replicación, catálogos.
 
 
 
-\subsection{Interfaces Global Alliance}
+\subsection{Interfaces Global Alliance for Genomics and Health}
 
-
+El grupo de trabajo de Datos de la Global Alliance for Genomics and
+Health a producido múltiples piezas de software para el
+aprovisionamiento de interfaces de intercambio de datos. El Banco de
+Datos del INMEGEN podría implementarlas para maximizar su
+interoperabilidad.
 
 \subsubsection{Matchmaker Exchange}
 
-El esfuerzo colaborativo \em{Matchmaker Exchange} enfrenta el reto de la
+El esfuerzo colaborativo \em{Matchmaker Exchange}\em  enfrenta el reto de la
 falta de claridad en la etiología en la mayoría de las muestras a las
 que se les secuencia el exoma o el genoma, tanto en ámbitos clínicos
 como académicos. En estos casos el hallazgo de un sólo caso adicional
@@ -143,19 +147,32 @@ institución puede implementar. Simplemente acepta preguntas como:
 3? (y del estilo) y responde con ``sí'' o ``no''.
 
 Es simple desde el punto de vista técnico, y no devuelve más
-información. El objetivo de implementar un Beacon es mostrar
+información. El objetivo de implementar un ``Beacon'' es mostrar
 disponibilidad al diálogo e intercambio de datos con otras
 instituciones.
 
 
 \subsubsection{Genomics API}
 
-\vref{fig:gallery}
+Esta interfaz programática permitirá el intercambio e
+interoperabilidad sobre información genómica a través de múltiples
+organizaciónes y múltiples plataformas. Es un estandar libre y abierto
+que usa protocolos web para dar soporte a la transmisión de datos de
+secuencias de ADN y de variación genómica. La interfaz permite la
+creación de fuentes de información que puede integrarse a software de
+visualización, a portales web de datos genómicos o a \em{pipelines}\em
+de análisis. Se sobrepone a barreras de infraestructura incompatible
+entre organizaciones e instituciones para facilitar el intercambio de
+datos de ADN a quienes los proveen y quienes los consumen.
 
-\begin{figure}[tb]
+La figura \vref{fig:interop} muestra diferentes programas accediendo a
+diferentes repositorios de datos a través de la Genomics API.
+
+\begin{figure}
 \centering 
 \includegraphics[width=0.8\columnwidth]{GA4GH_API_interop.png} 
-\caption[]{Interoperación de repositorios de datos en la Genomics API}
+\caption[]{Interoperación de repositorios de datos y programas a
+  través de la Genomics API}
 \label{fig:interop} 
 \end{figure}
 
