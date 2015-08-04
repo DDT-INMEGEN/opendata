@@ -66,13 +66,10 @@ contribuyan más allá de los análisis originales.
 Además de usarse para confirmar resultados originales, los datos
 crudos pueden usarse para explorar hipótesis nuevas o relacionadas,
 tanto más cuando se combinan con otros conjuntos de datos públicos.
-
-Perhaps the most in-
-teresting feature of sharing data is that anyone may disagree
-with the primary authors' analytic choices and run alterna-
-tive models, use other selections of the data, possibly leading
-to different conclusions. To be sure: there is simply nothing
-more scientific than a debate about the raw data. 
+Uno de los aspectos más interesantes de compartir datos es que
+cualquiera en desacuerdo con las elecciones analíticas de los primeros
+autores puede usar modelos alternativos, u otra selección de datos y
+posiblemente llegar a diferentes conclusiones.
 
 Tener datos reales es indispensable al investigar y desarrollar
 métodos de estudio, técnicas de análisis e implementaciones de
@@ -83,13 +80,15 @@ entrenamiento de nuevos investigadores y aumenta la eficiencia en el
 uso de fondos y poblaciones de pacientes al evitar la colección
 duplicada de datos.\cite{piwowar_sharing_2007}
 
-Algunas barreras que dificultan la publicación de datos son:
-restricciones impuestas por los autores, publicación de datos
-difíciles de reusar por estar pobremente anotados o imposibles de
-extraer (por ejemplo datos en tablas de archivos PDF).
-\cite{molloy_open_2011}.
+Algunas barreras que dificultan la publicación de datos son: falta de
+infraestructura informática, restricciones impuestas por los autores,
+publicación de datos difíciles de reusar por estar pobremente anotados
+o imposibles de extraer (por ejemplo datos en tablas de archivos
+PDF).\cite{molloy_open_2011}.
 
-
+Este documento es una propuesta para la creación de un Banco de Datos
+Genómicos tal que elimine los obstáculos para la diseminación y
+archivado de los datos que acompañan a las publicaciones del INMEGEN.
 
 
 \subsection{Datos en el INMEGEN}
@@ -111,15 +110,45 @@ respaldos, replicación, catálogos.
 \cite{altman_proposed_2007}
 
 
+
 \subsection{Interfaces Global Alliance}
 
-Matchmaker Exchange: a federated network of rare disease data sets.
 
-BRCA Challenge.
 
-Beacon Project.
+\subsubsection{Matchmaker Exchange}
 
-Reads API
+El proyecto pretende crear una red confederada de conjuntos de datos
+de enfermedades raras. Tal infraestructura permitirá el hallazgo de
+pacientes similares a través de diferentes bases de datos, en especial
+para facilitar el descubrimiento de las causas genéticas de
+enfermedades raras. La red de bases de datos se interconecta a través
+de la Matchmaker Exchange API, una interfaz programática que permite
+búsquedas de pacientes a través de sus perfiles fenotípicos y
+genotípicos.
+
+
+\subsubsection{Beacon Project}
+Se trata de un servicio público a través de la web que cualquier
+institución puede implementar. Simplemente acepta preguntas como:
+¿tienen genomas con la base 'A' en la posición 100,735 en el cromosoma
+3? (y del estilo) y responde con ``sí'' o ``no''.
+
+Es simple desde el punto de vista técnico, y no devuelve más
+información. El objetivo de implementar un Beacon es mostrar
+disponibilidad al diálogo e intercambio de datos con otras
+instituciones.
+
+\subsubsection{Genomics API}
+
+\vref{fig:gallery}
+
+\begin{figure}[tb]
+\centering 
+\includegraphics[width=0.8\columnwidth]{GA4GH_API_interop.png} 
+\caption[]{Interoperación de repositorios de datos en la Genomics API}
+\label{fig:interop} 
+\end{figure}
+
 
 
 \subsection{Enlaces con otros Repositorios}
@@ -194,10 +223,10 @@ central, pero el hospedaje de los datos debe proveerse por las
 instituciones que las publican.
 
 Para cumplir con estos requisitos en la actualidad el INMEGEN publica
-datos a través del portal http://genomamexicanos.inmegen.gob.mx que
+datos a través del portal \url{http://genomamexicanos.inmegen.gob.mx} que
 brinda acceso al explorador del HapMap con la aplicación
-http://diversity.inmegen.gob.mx/ y a los datos crudos de microarreglos
-en http://data.inmegen.gob.mx/.
+\url{http://diversity.inmegen.gob.mx/} y a los datos crudos de microarreglos
+en \url{http://data.inmegen.gob.mx/}.
 
 Sin embargo se trata de un sólo estudio y sería insuficiente como
 catálogo de datos para otras plataformas genómicas. Un banco de datos
@@ -215,14 +244,7 @@ mendelian).
 
 
 \section{Metodología}
-Reference to Figure~\vref{fig:gallery}. % The \vref command specifies the location of the reference
-
-% \begin{figure}[tb]
-% \centering 
-% \includegraphics[width=0.5\columnwidth]{GalleriaStampe} 
-% \caption[An example of a floating figure]{An example of a floating figure (a reproduction from the \emph{Gallery of prints}, M.~Escher,\index{Escher, M.~C.} from \url{http://www.mcescher.com/}).} % The text in the square bracket is the caption for the list of figures while the text in the curly brackets is the figure caption
-% \label{fig:gallery} 
-% \end{figure}
+Reference to Figure~. % The \vref command specifies the location of the reference
 
 
 \subsection{Creación de Grupo de trabajo}
