@@ -1,0 +1,7 @@
+all:VN: article_4.pdf structure.pdf
+
+%.pdf:	%.md
+	pandoc $stem.md -o $stem.pdf --latex-engine=lualatex --bibliography=inmegen_databank.bib
+
+clean:
+	rm -f *.pdf
