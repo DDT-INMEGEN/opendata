@@ -1,0 +1,28 @@
+all:V:  GUA.vcf.gz \
+        GUE.vcf.gz \
+        SON.vcf.gz \
+        VER.vcf.gz \
+        YUC.vcf.gz \
+        ZAC.vcf.gz \
+        ZAP.vcf.gz
+
+
+%.zip:
+      wget "http://data.inmegen.gob.mx/affy100k/plink_format/"$stem".zip"
+
+
+%.map %.ped:    %.zip
+      unzip -DD $prereq
+
+
+%.bed: %.map    %.ped
+       p-link --noweb --file $stem --make-bed --out $stem
+
+
+%.vcf.gz: %.bed
+        pseq $stem new-project
+        pseq $stem load-plink --file $stem --id $stem
+        pseq $stem write-vcf | gzip -9 > $stem.vcf.gz
+
+clean:V:
+       rm -f *.map *.ped *.bed *.bim *.fam *.hh *.log
