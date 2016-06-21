@@ -16,13 +16,14 @@ all:V:  GUA.vcf.gz \
 
 
 %.bed: %.map    %.ped
-       p-link --noweb --file $stem --make-bed --out $stem
+       p-link --noweb --file $stem --alleleACGT --make-bed --out $stem
 
 
 %.vcf.gz: %.bed
         pseq $stem new-project
         pseq $stem load-plink --file $stem --id $stem
-        pseq $stem write-vcf | gzip -9 > $stem.vcf.gz
-
+        pseq $stem write-vcf | bgzip > $stem.vcf.gz
+        tabix -p vcf $stem.vcf.gz
 clean:V:
-       rm -f *.map *.ped *.bed *.bim *.fam *.hh *.log
+       rm -f *.map *.ped *.bed *.bim *.fam *.hh *.log *.vcf.gz
+       rm -rf *out *res *pseq
