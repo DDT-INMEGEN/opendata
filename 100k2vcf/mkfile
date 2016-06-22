@@ -1,11 +1,17 @@
-all:V:  GUA.vcf.gz \
-        GUE.vcf.gz \
-        SON.vcf.gz \
-        VER.vcf.gz \
-        YUC.vcf.gz \
-        ZAC.vcf.gz \
-        ZAP.vcf.gz
+pdgm_all_pops.vcf.gz: pdgm_pops.bed
+        pseq pdgm new-project
+        pseq pdgm load-plink --file pdgm_pops --id pdgm_pops
+        pseq pdgm write-vcf | bgzip > pdgm_all_pops.vcf.gz
+        tabix -p vcf pdgm_all_pops.vcf.gz
 
+pdgm_pops.ped pdgm_pops.map: GUA.ped GUE.ped SON.ped VER.ped YUC.ped ZAC.ped ZAP.ped
+        ls *.ped > peds
+        ls *.map > maps
+        paste peds maps > pops.txt
+        p-link --noweb --merge-list pops.txt --recode --alleleACGT --out pdgm_pops
+
+pdgm_pops.bed: pdgm_pops.ped pdgm_pops.map
+        p-link --noweb --file pdgm_pops --make-bed --out pdgm_pops
 
 %.zip:
       wget "http://data.inmegen.gob.mx/affy100k/plink_format/"$stem".zip"
@@ -14,16 +20,6 @@ all:V:  GUA.vcf.gz \
 %.map %.ped:    %.zip
       unzip -DD $prereq
 
-
-%.bed: %.map    %.ped
-       p-link --noweb --file $stem --alleleACGT --make-bed --out $stem
-
-
-%.vcf.gz: %.bed
-        pseq $stem new-project
-        pseq $stem load-plink --file $stem --id $stem
-        pseq $stem write-vcf | bgzip > $stem.vcf.gz
-        tabix -p vcf $stem.vcf.gz
 clean:V:
-       rm -f *.map *.ped *.bed *.bim *.fam *.hh *.log *.vcf.gz
+       rm -f *.map *.ped *.bed *.bim *.fam *.hh *.log *.vcf.gz *.tbi peds maps pops.txt
        rm -rf *out *res *pseq
