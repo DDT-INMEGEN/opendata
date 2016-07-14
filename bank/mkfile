@@ -1,0 +1,19 @@
+all:VN: article_4.pdf
+
+%.pdf: %.md
+	pandoc \
+		-V fontsize=10pt \
+		-V papersize=letter \
+		-V fontenc='Anonymous Pro Minus' \
+		-V babellang=spanish \
+		-V classoption=oneside,headinclude,footinclude,BCOR5mm \
+		-V documentclass=scrartcl \
+		-V biblio-style=unsrt \
+		--natbib \
+		--latex-engine=xelatex \
+		--bibliography=inmegen_databank.bib \
+		-o $stem.pdf \
+		$stem.md
+
+clean:
+	rm -f *.pdf
